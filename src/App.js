@@ -97,7 +97,7 @@ class App extends React.Component {
     const { todos, newTodo } = this.state;
     const allToggled = todos.every(todo => todo.completed);
     return (
-      <div className="app">
+      <div className="app" style = {{backgroundColor: '#DCFAFA'}}>
         <div className="todo-container">
           <label htmlFor="new-todo">Add To-Do</label>
           <input
@@ -109,46 +109,46 @@ class App extends React.Component {
             onChange={this.handleInputChange}
             onKeyDown={this.handleNewTodoKeyDown}
           />
-          <Button animated="fade" onClick={this.handleAddClick}>
+          <Button animated="fade" onClick={this.handleAddClick} style = {{backgroundColor: '#006161', color: 'white', marginTop:'10px'}}>
             <Button.Content visible>add</Button.Content>
             <Button.Content hidden>
               <Icon name="plus" />
             </Button.Content>
           </Button>
           {todos.length === 0 ? (
-            <Table>
+            <Table style = {{backgroundColor: '#7CD2D2'}}>
               <Table.Header>
-                <Table.Row style={{ textAlign: "center" }}>
-                  <Table.HeaderCell>All Done!!</Table.HeaderCell>
+                <Table.Row >
+                  <Table.HeaderCell style = {{backgroundColor: '#7CD2D2'}}>All Done!!</Table.HeaderCell>
                 </Table.Row>
               </Table.Header>
             </Table>
           ) : (
             <Table>
-              <Table.Header>
-                <Table.Row>
-                  <Table.HeaderCell>
+              <Table.Header style = {{backgroundColor: '#7CD2D2'}}>
+                <Table.Row >
+                  <Table.HeaderCell colspan="2" style = {{backgroundColor: '#7CD2D2'}}>
                     <Checkbox
                       checked={allToggled}
                       onChange={this.handleToggleAll}
-                    />
+                    /><span style = {{marginLeft: '10px'}}>Select All</span>
                   </Table.HeaderCell>
                 </Table.Row>
               </Table.Header>
 
               <Table.Body>
                 {this.state.todos.map((todo, i) => (
-                  <Table.Row key={i} positive={todo.completed}>
+                  <Table.Row key={i} positive={todo.completed} style = {{backgroundColor: '#FFF'}}>
                     <Table.Cell>
                       <Checkbox
-                        checked={todo.completed}
+                        checked={todo.completed} 
                         onChange={() => this.handleTodoClick(todo, i)}
                       />
                     </Table.Cell>
                     <Table.Cell>
                       {todo.title}
                       <Button
-                        color="red"
+                        style = {{backgroundColor: '#FF7575'}}
                         icon="trash"
                         floated="right"
                         compact
@@ -160,9 +160,9 @@ class App extends React.Component {
                 ))}
               </Table.Body>
               <Table.Footer fullWidth>
-                <Table.Row>
-                  <Table.HeaderCell colSpan="2">
-                    <Button size="small" onClick={this.handleClearCompleted}>
+                <Table.Row style = {{backgroundColor: '#7CD2D2'}}>
+                  <Table.HeaderCell colSpan="2" style = {{backgroundColor: '#7CD2D2'}}>
+                    <Button size="small" onClick={this.handleClearCompleted} style = {{backgroundColor: '#006161', color: 'white'}}>
                       Clear Completed
                     </Button>
                   </Table.HeaderCell>
