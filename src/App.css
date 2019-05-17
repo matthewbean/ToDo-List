@@ -1,7 +1,7 @@
 *{
   box-sizing: border-box;
 }
-.app {
+.app {     
     display: grid;
     grid-template-columns: 1fr 400px 1fr;
     grid-template-rows: 1fr auto 1fr;
@@ -26,10 +26,6 @@
   border-radius: 5px;
 }
 
-.full{
-width: 100%;
-display: inline-block;
-}
 table{
   display: table;
   min-width: 100%;
